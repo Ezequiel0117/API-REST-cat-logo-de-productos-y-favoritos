@@ -1,0 +1,19 @@
+{
+  "name": "api-catalogo-favoritos",
+  "version": "1.0.0",
+  "description": "API REST de catálogo de productos y favoritos con JWT y roles",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:init": "node scripts/init-db.js",
+    "crear-admin": "node scripts/crear-admin.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  }
+}
