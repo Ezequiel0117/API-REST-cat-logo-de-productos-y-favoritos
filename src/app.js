@@ -1,24 +1,19 @@
 const express = require('express');
+const authRoutes = require('./routes/auth.routes');
 const productosRoutes = require('./routes/productos.routes');
+const favoritosRoutes = require('./routes/favoritos.routes');
+const { rutaNoEncontrada, manejadorErrores } = require('./middlewares/errores');
 
 const app = express();
 app.use(express.json());
 
 // Rutas de la API
+app.use('/api/auth', authRoutes);
 app.use('/api/productos', productosRoutes);
+app.use('/api/favoritos', favoritosRoutes);
 
-// Ruta no encontrada
-app.use((req, res) => {
-  res.status(404).json({ error: 'Ruta no encontrada' });
-});
-
-// Manejo de errores: nunca se envían detalles internos al cliente
-app.use((err, req, res, next) => {
-  if (err.type === 'entity.parse.failed') {
-    return res.status(400).json({ error: 'El cuerpo de la petición no es un JSON válido' });
-  }
-  console.error(err);
-  res.status(500).json({ error: 'Error interno del servidor' });
-});
+// Errores (siempre al final)
+app.use(rutaNoEncontrada);
+app.use(manejadorErrores);
 
 module.exports = app;
