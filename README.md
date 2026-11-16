@@ -2,12 +2,6 @@
 
 API REST con Node.js, Express y PostgreSQL para gestionar un catálogo de productos y los favoritos personales de cada usuario, con autenticación JWT y autorización por roles.
 
-## Integrante
-
-| Integrante | Aportes |
-|---|---|
-| Ezequiel | Desarrollo completo: estructura del proyecto, base de datos, CRUD de productos, autenticación JWT, roles, favoritos, manejo de errores, pruebas en Postman y documentación |
-
 ## Propósito
 
 - Cualquier persona puede consultar el catálogo de productos y filtrarlo por categoría.
